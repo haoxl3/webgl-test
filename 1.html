@@ -48,6 +48,7 @@
         uniform bool u_IsPOINTS;
         varying float v_Alpha;
         void main() {
+            <!-- 告诉着色器当前绘图的方式，如果是POINTS 方式绘图的话，就过滤一下圆圈以外的片元，否则就正常绘图 -->
             if(u_IsPOINTS){
                 float dist=distance(gl_PointCoord,vec2(0.5,0.5));
                 if(dist<0.5){

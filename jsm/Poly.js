@@ -74,6 +74,7 @@ export default class Poly{
   draw(types=this.types){
     const {gl,count,circleDot,u_IsPOINTS}=this
     for (let type of types) {
+      // 如果是在画圆点就基于绘图方式修改uniform变量
       circleDot&&gl.uniform1f(u_IsPOINTS,type==='POINTS')
       gl.drawArrays(gl[type],0,count);
     }
